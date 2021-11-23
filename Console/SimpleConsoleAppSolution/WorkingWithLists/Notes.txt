@@ -1,1 +1,1 @@
-﻿
+﻿Each todo will have name, description, completed values

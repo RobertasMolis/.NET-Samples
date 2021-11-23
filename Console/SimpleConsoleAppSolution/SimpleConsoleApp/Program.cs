@@ -1,66 +1,89 @@
-﻿// See https://aka.ms/new-console-template for more information
-// Console.WriteLine("Hello, World!");
-
-using System;
-
-namespace SimpleConsoleApp
+﻿namespace HelloWorld
 {
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             // Data types
-
             int number = 5;
+            string text = "Text" + " Test";
+            char singleChar = 'A';
+            bool boolValue = false;
+            double doubleValue = 5.432;
 
-            var arrayOfInts = new List<int>{1, 2, 3, 4, 5};
+            var arrayOfInts2 = new List<int> { 1, 2, 3, 4, 5 };
 
-            // Console comands
+            // Console commands
 
-            Console.WriteLine("Enter your input");
 
-            var consoleInput = Console.ReadLine();
 
-            // Console.WriteLine(consoleInput);
+            // String manipulation example: 5 + 4, 4 - 5;
 
-            // String manipulation: 5 + 4, 4 - 5
+            ////Get first two number
+            //consoleInput.Substring(0, 2);
 
-            // split string to smaller strings by spaces
-            var consoleElements = consoleInput.Split(" ");
+            ////Get first number
+            //consoleInput.FirstOrDefault();
 
-            // for loop
-            for (int i = 0; i < consoleElements.Length; i++)
+
+
+
+            //// forloop
+            //for (int i = 0; i < consoleElements.Length; i++)
+            //{
+            //    Console.WriteLine(consoleElements[i]);
+            //}
+
+            ////forEach loop
+            //foreach (var consoleElement in consoleElements)
+            //{
+            //    Console.WriteLine(consoleElement);
+            //}
+
+            var isFinished = false;
+
+            while (!isFinished)
             {
-                Console.WriteLine(consoleElements[i]);
-            }
+                Console.WriteLine("Enter your input or enter 'Exit' to exit");
 
-            foreach (var consoleElement in consoleElements)
-            {
-                Console.WriteLine(consoleElement);
-            }
+                var consoleInput = Console.ReadLine();
 
-            try
-            {
-                var firstInput = consoleElements[0];
-                var mathOperator = consoleElements[1];
-                var secondInput = consoleElements[2];
-
-                var firstNumber = Convert.ToInt32(firstInput);
-                var secondNumber = Convert.ToInt32(secondInput);
-
-                // if statments
-                if (mathOperator == "+")
+                if (consoleInput == "Exit")
                 {
-                    Console.WriteLine(firstNumber + secondNumber);
+                    isFinished = true;
                 }
-                if (mathOperator == "-")
+                else
                 {
-                    Console.WriteLine(firstNumber - secondNumber);
+                    var consoleElements = consoleInput.Split(" ");
+
+                    // try/catch
+                    try
+                    {
+                        var firstInput = consoleElements[0];
+                        var mathOperator = consoleElements[1];
+                        var secondInput = consoleElements[2];
+
+                        var firstNumber = Convert.ToInt32(firstInput);
+                        var secondNumber = Convert.ToInt32(consoleElements[2]);
+
+                        // if statements 
+                        if (mathOperator == "+")
+                        {
+                            Console.WriteLine(firstNumber + secondNumber);
+                        }
+                        if (mathOperator == "-")
+                        {
+                            Console.WriteLine(firstNumber - secondNumber);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("The input is incorrectly formatted");
+                    }
                 }
-            }
-             catch (Exception ex)
-            {
-                Console.WriteLine("The input is incorectly formatted");
+
+                // Split string into smaller string by spaces
+
             }
         }
     }
