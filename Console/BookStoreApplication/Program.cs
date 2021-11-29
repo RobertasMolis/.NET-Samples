@@ -4,9 +4,8 @@ var books = new List<Books>();
 
 while (true)
 {
-    Console.WriteLine("Please enter command: 'Add', 'List' or 'Delete'");
+    Console.WriteLine("Please enter command: 'Add', 'List', 'Update' or 'Delete'");
     var command = Console.ReadLine();
-
 
     if (command.ToLower() == "add")
 
@@ -40,7 +39,7 @@ while (true)
         }
     }
 
-    else if (command.ToLower() == "delete")
+    if (command.ToLower() == "delete")
     {
         Console.WriteLine("Please enter book's Title, which you want to delete");
         var delete = Console.ReadLine();
@@ -48,12 +47,25 @@ while (true)
         books.Remove(deleteTitle);
     }
 
-    else if (command.ToLower() == "list")
+    if (command.ToLower() == "update")
+    {
+        Console.WriteLine("Enter Title which you want to update");
+        var update = Console.ReadLine();
+        var updateBook = books.FirstOrDefault(x => x.Title == update);
+        Console.WriteLine("Enter new Title");
+        if (updateBook != null) updateBook.Title = Console.ReadLine();
+        Console.WriteLine("Enter new Description");
+        if (updateBook != null) updateBook.Description = Console.ReadLine();
+        Console.WriteLine("Enter new Amount");
+        if (updateBook != null) updateBook.Amount = Convert.ToInt32(Console.ReadLine());
+    }
+
+    if (command.ToLower() == "list")
     {
         foreach (var book in books)
         {
-            Console.WriteLine($"Title:{book.Title}, " +
-                $"Description:{book.Description}," +
+            Console.WriteLine($"Title: {book.Title}, " +
+                $"Description: {book.Description}, " +
                 $"Amount:{book.Amount}");
         }
     }
