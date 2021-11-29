@@ -8,7 +8,7 @@ while (true)
     var command = Console.ReadLine();
 
 
-    if (command == "Add")
+    if (command.ToLower() == "add")
 
     {
         Console.WriteLine("Please enter book title");
@@ -19,30 +19,36 @@ while (true)
             Console.WriteLine("Please enter description");
             var description = Console.ReadLine();
             Console.WriteLine("Please enter how much books you have");
-            var amount = Console.ReadLine();
-            
-            var amountInput = Convert.ToInt32(amount);
-            var book = new Books(title, description, amountInput);
+            var amount = 0;
+            try
+            {
+                amount = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Please enter number");
+                amount = Convert.ToInt32(Console.ReadLine());
+            }
+
+            var book = new Books(title, description, amount);
             books.Add(book);
         }
         else if (titleAlreadyExists == true)
         {
-            Console.WriteLine("Title you entered already exists");
+            Console.WriteLine("Title you entered already exists." +
+                " Please enter another one");
         }
     }
 
-
-    else if (command == "Delete")
+    else if (command.ToLower() == "delete")
     {
-        Console.WriteLine("Please enter book's Title, Which you want to delete");
+        Console.WriteLine("Please enter book's Title, which you want to delete");
         var delete = Console.ReadLine();
         var deleteTitle = books.Single(x => x.Title == delete);
         books.Remove(deleteTitle);
-
-
     }
 
-    else if (command == "List")
+    else if (command.ToLower() == "list")
     {
         foreach (var book in books)
         {
