@@ -52,13 +52,22 @@ while (true)
         Console.WriteLine("Enter Title which you want to update");
         var update = Console.ReadLine();
         var updateBook = books.FirstOrDefault(x => x.Title == update);
-        Console.WriteLine("Enter new Title");
-        if (updateBook != null) updateBook.Title = Console.ReadLine();
-        Console.WriteLine("Enter new Description");
-        if (updateBook != null) updateBook.Description = Console.ReadLine();
-        Console.WriteLine("Enter new Amount");
-        if (updateBook != null) updateBook.Amount = Convert.ToInt32(Console.ReadLine());
+        bool titleExists = books.Any(x => x.Title == update);
+        if (titleExists == false)
+        {
+            Console.WriteLine("There is no such book");
+        }
+        if (titleExists == true)
+        {
+            Console.WriteLine("Enter new Title");
+            if (updateBook != null) updateBook.Title = Console.ReadLine();
+            Console.WriteLine("Enter new Description");
+            if (updateBook != null) updateBook.Description = Console.ReadLine();
+            Console.WriteLine("Enter new Amount");
+            if (updateBook != null) updateBook.Amount = Convert.ToInt32(Console.ReadLine());
+        }
     }
+
 
     if (command.ToLower() == "list")
     {
