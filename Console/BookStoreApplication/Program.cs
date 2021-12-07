@@ -68,7 +68,6 @@ while (true)
         }
     }
 
-
     if (command.ToLower() == "list")
     {
         foreach (var book in books)
