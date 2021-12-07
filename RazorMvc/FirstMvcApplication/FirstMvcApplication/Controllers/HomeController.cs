@@ -44,7 +44,11 @@ namespace FirstMvcApplication.Controllers
         // Display a page with the form
         public IActionResult DisplaySubmitData()
         {
-            var emptyModel = new PersonModel();
+            var emptyModel = new PersonModel()
+            {
+                Name = "Fill me"
+            };
+
             return View(emptyModel);
         }
 
@@ -55,7 +59,8 @@ namespace FirstMvcApplication.Controllers
             // System.IO.File.WriteAllLines("test.txt", model.Name);
 
             System.IO.File.WriteAllText("test.txt", model.Name);
-            return View(new PersonModel());
+            return RedirectToAction("DisplaySubmitData");
+            // return View(new PersonModel());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
