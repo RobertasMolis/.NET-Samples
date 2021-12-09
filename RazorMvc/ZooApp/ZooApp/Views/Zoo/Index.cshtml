@@ -1,0 +1,10 @@
+﻿@model List<ZooApp.Models.ZooModel>
+
+<ul>
+    @foreach (var animal in @Model)
+    {
+        <li> @animal.Name </li>
+        <li> @animal.Gender </li>
+        <li> @animal.Age </li>
+    }
+</ul>

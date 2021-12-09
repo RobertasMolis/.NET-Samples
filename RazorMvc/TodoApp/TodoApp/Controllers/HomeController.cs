@@ -26,9 +26,13 @@ namespace TodoApp.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Todo()
         {
-            return View();
+            var todoModel = new TodoModel()
+            {
+                Todo = "Pailseti"
+            };
+            return View(todoModel);
         }
 
         public IActionResult SubmitNewTodo()
@@ -40,11 +44,22 @@ namespace TodoApp.Controllers
 
             return View(emptyTodo);
         }
-
-        public IActionResult TodoList(TodoModel todo)
+        [HttpPost]
+        public IActionResult SubmitNewTodo(TodoModel todoItem)
         {
-            _todoService.Add(todo);
-            return RedirectToAction("SubmitNewTodo");
+            _todoService.Add(todoItem);
+            return View("Index");
+        }
+        
+        public IActionResult TodoList()
+        {
+            var todos = _todoService.GetAll();
+
+            var todoList = new TodoListModel()
+            {
+                Todos = todos
+            };
+            return View(todoList);
         }
 
 
