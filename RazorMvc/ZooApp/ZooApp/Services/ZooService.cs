@@ -38,7 +38,7 @@ namespace ZooApp.Services
             }
 
             _connection.Close();
-            return new List<ZooModel>();
+            return animals;
         }
     }
 }

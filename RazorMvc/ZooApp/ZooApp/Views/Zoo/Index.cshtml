@@ -3,8 +3,6 @@
 <ul>
     @foreach (var animal in @Model)
     {
-        <li> @animal.Name </li>
-        <li> @animal.Gender </li>
-        <li> @animal.Age </li>
+        <li> @animal.Name @animal.Gender @animal.Age </li>
     }
 </ul>

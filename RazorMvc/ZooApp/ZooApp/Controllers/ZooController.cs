@@ -7,25 +7,25 @@ using ZooApp.Services;
 
 namespace ZooApp.Controllers
 {
-    public class ZooControler : Controller
+    public class ZooController : Controller
     {
-        private readonly ILogger<ZooControler> _logger;
+        private readonly ILogger<ZooController> _logger;
         private readonly ZooService _zooService; 
         // GET: ZooControler
 
-        public ZooControler(ILogger<ZooControler> logger, ZooService zooService)
+        public ZooController(ILogger<ZooController> logger, ZooService zooService)
         {
             _logger = logger;
             _zooService = zooService;
         }
-        public ActionResult Index()
+        public IActionResult Index()
         {
             var show = _zooService.GetAll();
-            return View(show);/// zoo lista paduodi.
+            return View(show);
         }
 
         // GET: ZooControler/Details/5
-        public ActionResult Details(int id)
+        public IActionResult Details(int id)
         {
             return View();
         }
