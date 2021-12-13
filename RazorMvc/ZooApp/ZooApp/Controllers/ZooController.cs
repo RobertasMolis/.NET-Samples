@@ -33,25 +33,25 @@ namespace ZooApp.Controllers
         // GET: ZooControler/Create
         public ActionResult Create()
         {
-            return View();
+            return View(); //čia realiai susikursi tuščią zoo objektą ir paduosi į view.
+                           ////view jį paėmęs galėsi užpildyti per inputus. paspaudus "save" atsiūsi duomenis į....
         }
 
-        // POST: ZooControler/Create
+        // POST: i sita create, post metodu.
         [HttpPost]
         
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(IFormCollection collection/*cia berods gali priimti id, arba visą objektą*/)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
+          //service paima iš objekto duomenis, ir siuncia sql užklausą idejimo.
                 return View();
-            }
+            
         }
 
-        // GET: ZooControler/Edit/5
+        // GET: ZooControler/Edit/5  edit panasiai kaip create. kazkur konkreciai nori kad issiplesciau?
+        // kol kas pameginisiu, žinau kad kils klausimų, tada kreipsiuos 
+        // tik klausimas ar bus kur padarytas visad sitas ? Nes per sian nespesiu, o ryt nelabai galimybiu turesiu daryt, busiu prisijunges tik kad prisijungti ir paklausyt
+        //gerai priminei, padarysiu kaip su kita grupe. tai bus.
+        // ok, bent pasinagrinet kaip atrodo, savaitgali pačiam pasimegint :) good luck
         public ActionResult Edit(int id)
         {
             return View();

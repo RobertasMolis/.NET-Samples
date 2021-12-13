@@ -30,9 +30,10 @@ namespace ZooApp.Services
             while (reader.Read())
             {
                ZooModel animal = new ZooModel();
-                animal.Name = reader.GetString(0);
-                animal.Gender = reader.GetString(1);
-                animal.Age = reader.GetInt32(2);
+                animal.Id = reader.GetInt32(0);
+                animal.Name = reader.GetString(1);
+                animal.Gender = reader.GetString(2);
+                animal.Age = reader.GetInt32(3);
 
                 animals.Add(animal);
             }
@@ -40,5 +41,6 @@ namespace ZooApp.Services
             _connection.Close();
             return animals;
         }
+
     }
 }

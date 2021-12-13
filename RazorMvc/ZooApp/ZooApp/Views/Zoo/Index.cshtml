@@ -3,6 +3,11 @@
 <ul>
     @foreach (var animal in @Model)
     {
-        <li> @animal.Name @animal.Gender @animal.Age </li>
+        <li>
+            ID: @animal.Id Vardas: @animal.Name Lytis: @animal.Gender Amžius: @animal.Age
+            @*Edit*@
+            @*Forma delete. nurodai kur kreipsies bei.. id ką trinsi https://stackoverflow.com/a/17663249/4568499*@
+
+        </li>
     }
 </ul>
