@@ -12,5 +12,13 @@ namespace TodoListApplication.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasData(new Category()
+            {
+                Id = 1,
+                Name = "Default"
+            });
+        }
     }
 }
