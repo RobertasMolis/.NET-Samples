@@ -12,7 +12,6 @@ namespace EfCoreShop.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int ShopId { get; set; }
-        [NotMapped]
         public Shop Shop { get; set; }
         public DateTime ExpiryDate { get; set; } = DateTime.UtcNow;
     }

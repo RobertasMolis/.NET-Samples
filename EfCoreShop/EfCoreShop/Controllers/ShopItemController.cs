@@ -21,7 +21,7 @@ namespace EfCoreShop.Controllers
         
         public IActionResult Index()
         {
-            List<Shopitem> shopItems = _context.Shopitems.Include().ToList(); // reik pabaigt
+            List<Shopitem> shopItems = _context.Shopitems.Include(x => x.Shop).ToList();
            
             return View(shopItems);
         }
