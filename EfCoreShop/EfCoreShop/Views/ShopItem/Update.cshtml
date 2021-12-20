@@ -1,0 +1,14 @@
+﻿@model Shopitem
+
+@using (Html.BeginForm("Update", "ShopItem", FormMethod.Post))
+{
+    @Html.LabelFor(a => a.Name)
+    @Html.TextBoxFor(a => a.Name)
+    @Html.ValidationMessageFor(a => a.Name)
+
+    @Html.LabelFor(a => a.Shop.Id)
+    @Html.TextBoxFor(a => a.Shop.Id)
+    @Html.ValidationMessageFor(a => a.Shop.Id)
+        
+    <input type="submit" value="Submit"/>
+}

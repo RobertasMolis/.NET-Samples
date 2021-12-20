@@ -25,5 +25,46 @@ namespace EfCoreShop.Controllers
            
             return View(shopItems);
         }
+
+        public IActionResult Add()
+        {
+            var shopItem = new Shopitem();
+            return View(shopItem);
+
+        }
+
+        [HttpPost]
+        public IActionResult Add(Shopitem shopitem)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(shopitem);
+            }
+            _context.Shopitems.Add(shopitem);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var shopItem = _context.Shopitems.Find(id);
+            _context.Shopitems.Remove(shopItem);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Update(int id)
+        {
+            var shopItem = _context.Shopitems.Find(id);
+            return View(shopItem);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Shopitem shopitem)
+        {
+            _context.Shopitems.Update(shopitem);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
