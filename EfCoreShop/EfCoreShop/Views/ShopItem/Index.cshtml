@@ -5,7 +5,7 @@
 <ul>
     @foreach(var @shopItem in @Model)
     {
-        <li> @shopItem.Shop.Name @shopItem.Name </li>
+        <li> @shopItem.Name </li>
         @Html.ActionLink("Update","Update", "ShopItem", new {id = @shopItem.Id } ,new { @class= "btn btn-danger" })
         @Html.ActionLink("Delete", "Delete", "ShopItem", new {id = @shopItem.Id } ,new { @class = "btn btn-primary"})
     }

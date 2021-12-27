@@ -16,5 +16,6 @@ namespace EfCoreShop.Models
         public int ShopId { get; set; } = 2;
         public Shop Shop { get; set; }
         public DateTime ExpiryDate { get; set; } = DateTime.UtcNow;
+        public List<ShopItemTag> ShopItemTags { get; set; }
     }
 }
