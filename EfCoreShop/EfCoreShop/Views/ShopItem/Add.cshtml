@@ -7,10 +7,10 @@
     @Html.ValidationMessageFor(a => a.Shopitem.Name)
 
     @Html.LabelFor(a => a.Shopitem.Shop)
-    @Html.DropDownListFor(a => a.Shopitem.Shop, new SelectList(@Model.AllShops, "Id", "Name")) //There is one minor mistake here
+    @Html.DropDownListFor(a => a.Shopitem.Shop, new SelectList(@Model.AllShops, "Id", "Name"))
     @Html.ValidationMessageFor(a => a.Shopitem.Shop)
 
-
+    
 
     <input type="submit" value="Submit"/>
 }

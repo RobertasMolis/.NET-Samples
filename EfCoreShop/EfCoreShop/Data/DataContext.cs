@@ -44,12 +44,15 @@ namespace EfCoreShop.Data
                       Id = 1,
                       Name = "Minima"
                   },
+                  new Shop()
+                  {
+                      Id = 2,
+                      Name = "Media"
+                  },
                    new Shop()
                    {
-                       Id = 2,
-                       Name = "Media"
-
-
+                       Id = 3,
+                       Name = "Maxima"
                    });
             modelBuilder.Entity<Shopitem>().HasData(
                   new Shopitem()
