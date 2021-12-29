@@ -34,7 +34,7 @@ namespace EfCoreShop.Controllers
             {
                 Shopitem = new Shopitem(),
                 AllShops = _context.Shops.ToList(),
-                Tags = _context.Tags.ToList(),
+                Tags = _context.Tags.ToList(), //ok tagai yra.
             };
             return View(createShopItem);
         }
@@ -47,10 +47,11 @@ namespace EfCoreShop.Controllers
                 createShopItem.AllShops = _context.Shops.ToList();
                 return View(createShopItem);
             }
+            //cia kur nors breakpoint dek. ir tada ziek kas atkeliauja. jei ne null  galesi sukti cikla ir daryti kazka toliau. pabandyk  OK mėginisu
             _context.Shopitems.Add(createShopItem.Shopitem);
             _context.SaveChanges();
 
-            foreach (var tagId in createShopItem.SelectedShopItemIds)
+            foreach (var tagId in createShopItem.SelectedShopItemIds)  //ne pala. ne tas masyvas.  shhopitemIds yra tuscias. ir cia tau reikia tagu saraso. 
             {
                 _context.ShopItemTags.Add(new ShopItemTag()
                 {

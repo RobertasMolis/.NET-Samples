@@ -12,6 +12,7 @@ namespace EfCoreShop.Dtos
         public Shopitem Shopitem { get; set; }
         public List<Shop> AllShops { get; set; }
         public List<int> SelectedShopItemIds { get; set; }
+        public List<int> SelectedTagIds { get; set; } // i sita sudesi paselectintu tagu ids.
         public List<Tag> Tags { get; set; }
     }
 }

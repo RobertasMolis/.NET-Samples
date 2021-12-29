@@ -10,7 +10,14 @@
     @Html.DropDownListFor(a => a.Shopitem.Shop, new SelectList(@Model.AllShops, "Id", "Name"))
     @Html.ValidationMessageFor(a => a.Shopitem.Shop)
 
-    
+    @Html.LabelFor(a => a.Shopitem.ShopItemTags)
+    @Html.DropDownListFor
+
+    //cia turetu buti tagu pvz dropdown su multiple select galimybe.
+
+    // kaip shop ? aha. tada pasirinksi ir pasirinktus dalykus perduosi masyve kuris yra....
+
+    //multiple select dropwodn padaryk. ir patikrink ar rodo, ar selectina multiple
 
     <input type="submit" value="Submit"/>
 }
