@@ -10,40 +10,58 @@ namespace Ignitis.Data
 {
     public class DataContext : DbContext
     {
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Form> Forms { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
 
-        public DbSet<Answer> Answers { get; set; }
-        public DbSet<Question> Questions { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Form>().HasData(
+                new Form()
+                {
+                    Id = 1,
+                    Name = "First form"
+                });
+
             modelBuilder.Entity<Question>().HasData(
                 new Question()
                 {
                     Id = 1,
-                    Name = "Reikia atlikti rangos darbus"
+                    Name = "Reikia atlikti rangos darbus",
+                    AnswerId = 1,
+                    FormId = 1
                 },
                 new Question()
                 {
                     Id = 2,
-                    Name = "Rangos darbus atliks"
+                    Name = "Rangos darbus atliks",
+                    AnswerId = 3,
+                    FormId = 1
                 },
                 new Question()
                 {
                     Id = 3,
-                    Name = "Verslo klientas"
+                    Name = "Verslo klientas",
+                    AnswerId = 8,
+                    FormId = 1
                 },
                 new Question()
                 {
                     Id = 4,
-                    Name = "Skaičiavimo metodas"
+                    Name = "Skaičiavimo metodas",
+                    AnswerId = 7,
+                    FormId = 1
                 }, 
                 new Question()
                 {
                     Id = 5,
-                    Name = "Svarbus klientas"
+                    Name = "Svarbus klientas",
+                    AnswerId = 10,
+                    FormId = 1
                 }
                 );
 

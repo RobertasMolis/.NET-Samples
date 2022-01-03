@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Ignitis.Models
 {
-    public class Answer : Entity
+    public class Form : Entity
     {
-        public int QuestionId { get; set; }
-        // public Question Question { get; set; }
+        // public List<Question> Questions { get; set; }
     }
 }
