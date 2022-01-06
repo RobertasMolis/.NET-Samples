@@ -8,7 +8,7 @@ namespace Ignitis.Data
     {
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Question> Questions { get; set; }
-        public DbSet<Form> Forms { get; set; }  
+        public DbSet<Form> Forms { get; set; }
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
@@ -23,38 +23,38 @@ namespace Ignitis.Data
 
             modelBuilder.Entity<Question>().HasData(new List<Question>()
             {
-                new Question(){
+                    new Question(){
                     Id = 1,
                     AnswerId = null,
                     FormId = 1,
                     Title = "Reikia atlikti Rangos darbus"
-                },
-                 new Question(){
+                      },
+                    new Question(){
                     Id = 2,
                     AnswerId = null,
                     FormId = 1,
                     Title = "Rangos darbus atliks"
-                },
-                  new Question(){
+                     },
+                    new Question(){
                     Id = 3,
                     AnswerId = null,
                     FormId = 1,
                     Title = "Verslo klientas"
-                },
-                      new Question(){
+                    },
+                    new Question()
+                    {
                     Id = 4,
                     AnswerId = null,
                     FormId = 1,
                     Title = "Skaiciavimo metodas"
-                },
-                    new Question(){
+                    },
+                    new Question()
+                    {
                     Id = 5,
                     AnswerId = null,
                     FormId = 1,
                     Title = "Svarbus klientas"
-                }
-
-
+                    }
             });
 
             modelBuilder.Entity<Answer>().HasData(new List<Answer>()
@@ -64,14 +64,12 @@ namespace Ignitis.Data
                     Id = 1,
                     Title = "Yes",
                     QuestionId = 1
-
                 },
                 new Answer(){
                     Id = 2,
                     Title = "No",
                     QuestionId = 1
                 }
-
             });
 
             modelBuilder.Entity<Answer>().HasData(new List<Answer>()
@@ -81,14 +79,12 @@ namespace Ignitis.Data
                     Id = 3,
                     Title = "Metinis Rangovas",
                     QuestionId = 2
-
                 },
                 new Answer(){
                     Id = 4,
                     Title = "Menesinis Rangovas",
                     QuestionId = 2
                 }
-
             });
 
             modelBuilder.Entity<Answer>().HasData(new List<Answer>()
@@ -105,7 +101,6 @@ namespace Ignitis.Data
                     Title = "Ne",
                     QuestionId = 3
                 }
-
             });
 
             modelBuilder.Entity<Answer>().HasData(new List<Answer>()
@@ -122,7 +117,22 @@ namespace Ignitis.Data
                     Title = "Manual",
                     QuestionId = 4
                 }
+            });
 
+            modelBuilder.Entity<Answer>().HasData(new List<Answer>()
+            {
+
+                new Answer(){
+                    Id = 9,
+                    Title = "Taip",
+                    QuestionId = 5
+
+                },
+                new Answer(){
+                    Id = 10,
+                    Title = "Ne",
+                    QuestionId = 5
+                }
             });
         }
     }

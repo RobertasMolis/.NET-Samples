@@ -16,16 +16,17 @@ namespace Ignitis.Controllers
 
         public IActionResult Index()
         {
-            var form = _dataContext.Forms.Include(f => f.Questions).ThenInclude(q => q.PossibleAnswers).FirstOrDefault();
+            var form = _dataContext.Forms.Include(f => f.Questions).ThenInclude
+                (q => q.PossibleAnswers).FirstOrDefault();
             return View(form);
         }
-        
-        //public IActionResult Submit(Form form)
-        //{
-        //    _dataContext.Update(form);
-        //    _dataContext.SaveChanges();
 
-        //    return RedirectToAction("Index");
-        //}
+        public IActionResult Submit(Form form)
+        {
+            _dataContext.Update(form);
+            _dataContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
