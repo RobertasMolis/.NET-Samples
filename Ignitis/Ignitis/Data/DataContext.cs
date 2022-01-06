@@ -1,10 +1,6 @@
-﻿using Ignitis.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Ignitis.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ignitis.Data
 {
@@ -12,8 +8,7 @@ namespace Ignitis.Data
     {
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Question> Questions { get; set; }
-        public DbSet<Form> Forms { get; set; }
-
+        public DbSet<Form> Forms { get; set; }  
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
@@ -21,112 +16,114 @@ namespace Ignitis.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Form>().HasData(
-                new Form()
-                {
-                    Id = 1,
-                    Name = "First form"
-                });
+            new Form
+            {
+                Id = 1
+            });
 
-            modelBuilder.Entity<Question>().HasData(
-                new Question()
-                {
+            modelBuilder.Entity<Question>().HasData(new List<Question>()
+            {
+                new Question(){
                     Id = 1,
-                    Name = "Reikia atlikti rangos darbus",
-                    AnswerId = 1,
-                    FormId = 1
+                    AnswerId = null,
+                    FormId = 1,
+                    Title = "Reikia atlikti Rangos darbus"
                 },
-                new Question()
-                {
+                 new Question(){
                     Id = 2,
-                    Name = "Rangos darbus atliks",
-                    AnswerId = 3,
-                    FormId = 1
+                    AnswerId = null,
+                    FormId = 1,
+                    Title = "Rangos darbus atliks"
                 },
-                new Question()
-                {
+                  new Question(){
                     Id = 3,
-                    Name = "Verslo klientas",
-                    AnswerId = 8,
-                    FormId = 1
+                    AnswerId = null,
+                    FormId = 1,
+                    Title = "Verslo klientas"
                 },
-                new Question()
-                {
+                      new Question(){
                     Id = 4,
-                    Name = "Skaičiavimo metodas",
-                    AnswerId = 7,
-                    FormId = 1
-                }, 
-                new Question()
-                {
+                    AnswerId = null,
+                    FormId = 1,
+                    Title = "Skaiciavimo metodas"
+                },
+                    new Question(){
                     Id = 5,
-                    Name = "Svarbus klientas",
-                    AnswerId = 10,
-                    FormId = 1
+                    AnswerId = null,
+                    FormId = 1,
+                    Title = "Svarbus klientas"
                 }
-                );
 
-            modelBuilder.Entity<Answer>().HasData(
-                new Answer()
-                {
+
+            });
+
+            modelBuilder.Entity<Answer>().HasData(new List<Answer>()
+            {
+
+                new Answer(){
                     Id = 1,
-                    Name = "Taip",
+                    Title = "Yes",
                     QuestionId = 1
+
                 },
-                new Answer()
-                {
+                new Answer(){
                     Id = 2,
-                    Name = "Ne",
+                    Title = "No",
                     QuestionId = 1
-                },
-                new Answer()
-                {
+                }
+
+            });
+
+            modelBuilder.Entity<Answer>().HasData(new List<Answer>()
+            {
+
+                new Answer(){
                     Id = 3,
-                    Name = "Metinis rangovas",
+                    Title = "Metinis Rangovas",
                     QuestionId = 2
+
                 },
-                new Answer()
-                {
+                new Answer(){
                     Id = 4,
-                    Name = "Naujas rangovas",
+                    Title = "Menesinis Rangovas",
                     QuestionId = 2
-                },
-                new Answer()
-                {
+                }
+
+            });
+
+            modelBuilder.Entity<Answer>().HasData(new List<Answer>()
+            {
+
+                new Answer(){
                     Id = 5,
-                    Name = "Ne",
+                    Title = "Taip",
                     QuestionId = 3
+
                 },
-                new Answer()
-                {
+                new Answer(){
                     Id = 6,
-                    Name = "Taip",
+                    Title = "Ne",
                     QuestionId = 3
-                },
-                new Answer() 
-                {
-                    Id = 7,
-                    Name = "Automatinis",
-                    QuestionId = 4
-                },
-                new Answer()
-                {
-                    Id = 8,
-                    Name = "Rankinis",
-                    QuestionId = 4
-                },
-                new Answer()
-                {
-                    Id = 9,
-                    Name = "Taip",
-                    QuestionId = 5
-                },
-                new Answer()
-                {
-                    Id= 10,
-                    Name = "Ne",
-                    QuestionId = 5
                 }
-                );
+
+            });
+
+            modelBuilder.Entity<Answer>().HasData(new List<Answer>()
+            {
+
+                new Answer(){
+                    Id = 7,
+                    Title = "Automatinis",
+                    QuestionId = 4
+
+                },
+                new Answer(){
+                    Id = 8,
+                    Title = "Manual",
+                    QuestionId = 4
+                }
+
+            });
         }
     }
 }

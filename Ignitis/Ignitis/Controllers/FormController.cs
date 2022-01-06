@@ -1,15 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Ignitis.Data;
-using System;
-using System.Collections.Generic;
+using Ignitis.Models;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ignitis.Controllers
 {
     public class FormController : Controller
     {
-        // private DataContext _context;
+        private DataContext _dataContext;
+        public FormController(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
+        public IActionResult Index()
+        {
+            var form = _dataContext.Forms.Include(f => f.Questions).ThenInclude(q => q.PossibleAnswers).FirstOrDefault();
+            return View(form);
+        }
+        
+        //public IActionResult Submit(Form form)
+        //{
+        //    _dataContext.Update(form);
+        //    _dataContext.SaveChanges();
+
+        //    return RedirectToAction("Index");
+        //}
     }
 }

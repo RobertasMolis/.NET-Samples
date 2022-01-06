@@ -8,6 +8,6 @@ namespace Ignitis.Models
 {
     public class Form : Entity
     {
-        // public List<Question> Questions { get; set; }
+        public List<Question> Questions { get; set; }
     }
 }

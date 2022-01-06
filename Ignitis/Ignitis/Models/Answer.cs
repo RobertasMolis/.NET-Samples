@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ignitis.Models.Bases;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace Ignitis.Models
 {
-    public class Answer : Entity
+    public class Answer : TitledEntity
     {
+        [Required]
         public int QuestionId { get; set; }
-        // public Question Question { get; set; }
+        public Question Question { get; set; }
     }
 }
