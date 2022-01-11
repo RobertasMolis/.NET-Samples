@@ -62,12 +62,12 @@ namespace Ignitis.Data
 
                 new Answer(){
                     Id = 1,
-                    Title = "Yes",
+                    Title = "Taip",
                     QuestionId = 1
                 },
                 new Answer(){
                     Id = 2,
-                    Title = "No",
+                    Title = "Ne",
                     QuestionId = 1
                 }
             });
@@ -77,12 +77,12 @@ namespace Ignitis.Data
 
                 new Answer(){
                     Id = 3,
-                    Title = "Metinis Rangovas",
+                    Title = "Metinis rangovas",
                     QuestionId = 2
                 },
                 new Answer(){
                     Id = 4,
-                    Title = "Menesinis Rangovas",
+                    Title = "Vienkartinis rangovas",
                     QuestionId = 2
                 }
             });
@@ -114,7 +114,7 @@ namespace Ignitis.Data
                 },
                 new Answer(){
                     Id = 8,
-                    Title = "Manual",
+                    Title = "Rankinis",
                     QuestionId = 4
                 }
             });

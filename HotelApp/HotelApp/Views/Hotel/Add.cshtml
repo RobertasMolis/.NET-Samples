@@ -1,0 +1,12 @@
+﻿@model Hotel
+
+@using (Html.BeginForm("Add", "Hotel", FormMethod.Post))
+{
+    <div>
+        New hotel details
+    </div>
+    <div>
+        Hotel name @Html.EditorFor(a => a.Name)
+    </div>
+    <input type="submit" value="Submit" />
+}

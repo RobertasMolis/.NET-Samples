@@ -1,0 +1,26 @@
+﻿@model List<Hotel>
+<div>
+    @Html.ActionLink("Add new Hotel", "Add", "Hotel", "", new { @class = "btn btn-primary"})
+</div>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Hotel</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var hotel in @Model)
+        {
+            <tr>
+                <th scope="row">@hotel.Id</th>
+                <td>@hotel.Name</td>
+                <td>
+                    @Html.ActionLink("Update", "Update", "Hotel", new { id = @hotel.Id}, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Delete", "Delete", "Hotel", new { id = @hotel.Id}, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
