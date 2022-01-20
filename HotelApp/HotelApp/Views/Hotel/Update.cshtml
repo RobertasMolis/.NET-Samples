@@ -3,13 +3,12 @@
 @using (Html.BeginForm("Update", "Hotel", FormMethod.Post))
 {
     <div>
-        Hotel @Html.LabelFor(a => a.Name)
+        Update hotel details
     </div>
     <div>
-        @Html.EditorFor(a => a.Name)
-        <div>
-            @Html.ValidationMessageFor(a => a.Name)
-        </div>
+        Hotel name @Html.EditorFor(a => a.Name)
+        City @Html.EditorFor(a => a.City)
+        Address @Html.EditorFor(a => a.Address)
     </div>
     <input type="submit" value="Submit" />
 }

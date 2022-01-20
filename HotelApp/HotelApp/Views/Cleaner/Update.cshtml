@@ -1,0 +1,14 @@
+﻿@model Cleaner
+
+@using (Html.BeginForm("Update", "Cleaner", FormMethod.Post))
+{
+    <div>
+        Update cleaner details
+    </div>
+    <div>
+        Cleaner Name @Html.EditorFor(a => a.Name)
+        Cleaner Surname @Html.EditorFor(a => a.Surname)
+        City @Html.EditorFor(a => a.City)
+    </div>
+    <input type="submit" value="Submit" />
+}

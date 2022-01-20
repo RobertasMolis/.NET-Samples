@@ -1,0 +1,30 @@
+﻿@model List<Cleaner>
+<div>
+    @Html.ActionLink("Add new Cleaner", "Add", "Cleaner", "", new { @class = "btn btn-primary"})
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cleaner in @Model)
+        {
+            <tr>
+                <th>@cleaner.Id</th>
+                <td>@cleaner.Name</td>
+                <td>@cleaner.Surname</td>
+                <td>@cleaner.City</td>
+                <td>
+                    @Html.ActionLink("Update", "Update", "Cleaner", new { id = @cleaner.Id}, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Delete", "Delete", "Cleaner", new { id = @cleaner.Id}, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
